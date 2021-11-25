@@ -20,24 +20,92 @@ require(tidyverse)
 
 # Predicting Fish Weight
 
+```{r}
+Perch<-filter(Fish,Species=="Perch")
+Perch<-select(Perch,-Species)
+```
+
 
 ## Perch
 
 ### Best Models
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Perch,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 ### Best Two regressor model
 
+The best two regressor models for the perch is H-W. Which are height and width.
 
 ## Pike
+```{r}
+Pike<-filter(Fish,Species=="Pike")
+Pike<-select(Pike,-Species)
+```
+
 
 ### Best Models
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Pike,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 ### Best Two regressor model
+
+The best two regressors for the pike is L1-W. Which is Length 1 and Width.
 
 ## Roach
 
+```{r}
+Roach<-filter(Fish,Species=="Roach")
+Roach<-select(Roach,-Species)
+```
+
 ### Best Models
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 ### Best Two regressor model
 
+The best two regressors for Roach are Length 3 and Width.
+
 ## Final Summary Statements
+
+In conclusion we were able to see the two best regressor models for the three types of fishes listed, we can see some similarities and as well some differences. Like for the perch they have the same best regressor as the pike. They both have height and width as their best regressors.As for the differences the roach has length 3 and the perch doesn't have that.
+
