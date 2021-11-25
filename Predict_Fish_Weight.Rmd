@@ -111,3 +111,4 @@ The best two regressors for Roach are Length 3 and Width.
 
 In conclusion we were able to see the two best regressor models for the three types of fishes listed, we can see some similarities and as well some differences. Like for the perch they have the same best regressor as the pike. They both have height and width as their best regressors.As for the differences the roach has length 3 and the perch doesn't have that.
 
+
