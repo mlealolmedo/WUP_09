@@ -50,6 +50,7 @@ subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2
 The best two regressor models for the perch is H-W. Which are height and width.
 
 ## Pike
+
 ```{r}
 Pike<-filter(Fish,Species=="Pike")
 Pike<-select(Pike,-Species)
@@ -76,6 +77,7 @@ subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2
 ### Best Two regressor model
 
 The best two regressors for the pike is L1-W. Which is Length 1 and Width.
+
 
 ## Roach
 
